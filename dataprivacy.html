@@ -9,16 +9,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body><a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<body data-theme="dark"><a class="skip-link" href="#main-content">Zum Inhalt springen</a>
     <header class="site-header">
         <div class="shell nav-wrap"><a class="brand" href="index.html"
                 aria-label="Andreas Draheim Consultdev – Startseite"><img src="assets/consultdev_main_logo.png"
                     alt="Andreas Draheim Consultdev" class="brand-logo"></a>
-            <nav aria-label="Hauptnavigation"><a href="index.html">Startseite</a><a
-                    href="index.html#leistungen">Leistungen</a><a href="index.html#arbeitsweise">Arbeitsweise</a><a
-                    class="nav-cta"
-                    href="/cdn-cgi/l/email-protection#96f7f8f2e4f3f7e5b8f2e4f7fef3fffbd6f5f9f8e5e3fae2f2f3e0b8f2f3">Kontakt
-                    <span aria-hidden="true">↗</span></a></nav>
+            <nav aria-label="Hauptnavigation">
+                <button class="theme-toggle" type="button" aria-label="Farbschema umschalten" aria-pressed="true">
+                    <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+                    <span class="theme-toggle-text">Light</span>
+                </button>
+            </nav>
         </div>
     </header>
     <main id="main-content" class="legal-page shell">
@@ -34,9 +35,7 @@
         <section class="legal-block">
             <h2>Verantwortlicher</h2>
             <p>Andreas Draheim Consultdev<br>Andreas Draheim<br>Steubenstr. 41<br>90763 Fürth<br>E-Mail: <a
-                    href="/cdn-cgi/l/email-protection#afcec1cbddcacedc81cbddcec7cac6c2efccc0c1dcdac3dbcbcad981cbca"><span
-                        class="__cf_email__"
-                        data-cfemail="32535c56405753411c5640535a575b5f72515d5c41475e465657441c5657">[email&#160;protected]</span></a>
+                    href="mailto:andreas.draheim@consultdev.de">andreas.draheim@consultdev.de</a>
             </p>
             <h2>Kontaktaufnahme per E-Mail</h2>
             <p>Wenn Sie per E-Mail Kontakt aufnehmen, werden die von Ihnen übermittelten Angaben zur Bearbeitung der
@@ -64,12 +63,37 @@
             <div><a href="impressum.html">Impressum</a><a href="dataprivacy.html">Datenschutz</a></div>
         </div>
     </footer>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script type="module"
-        src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
-        integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA=="
-        data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}'
-        crossorigin="anonymous"></script>
+    <script>
+        (() => {
+            const body = document.body;
+            const savedTheme = localStorage.getItem('consultdev-theme');
+            const theme = savedTheme || 'dark';
+
+            const applyTheme = (nextTheme) => {
+                const isDark = nextTheme === 'dark';
+                body.dataset.theme = nextTheme;
+                localStorage.setItem('consultdev-theme', nextTheme);
+
+                const toggle = document.querySelector('.theme-toggle');
+                if (toggle) {
+                    toggle.setAttribute('aria-pressed', String(isDark));
+                    toggle.querySelector('.theme-toggle-icon').textContent = isDark ? '☀' : '☾';
+                    toggle.querySelector('.theme-toggle-text').textContent = isDark ? 'Light' : 'Dark';
+                }
+            };
+
+            window.addEventListener('DOMContentLoaded', () => {
+                const toggle = document.querySelector('.theme-toggle');
+                if (!toggle) return;
+
+                applyTheme(theme);
+                toggle.addEventListener('click', () => {
+                    const nextTheme = body.dataset.theme === 'dark' ? 'light' : 'dark';
+                    applyTheme(nextTheme);
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>

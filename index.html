@@ -7,7 +7,7 @@
   <title>Andreas Draheim Consultdev — Software mit Richtung</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="dark">
   <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
   <header class="site-header">
     <div class="shell nav-wrap">
@@ -15,9 +15,13 @@
         <img src="assets/consultdev_main_logo.png" alt="Andreas Draheim Consultdev" class="brand-logo">
       </a>
       <nav aria-label="Hauptnavigation">
+        <button class="theme-toggle" type="button" aria-label="Farbschema umschalten" aria-pressed="true">
+          <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+          <span class="theme-toggle-text">Light</span>
+        </button>
         <a href="#leistungen">Leistungen</a>
         <a href="#arbeitsweise">Arbeitsweise</a>
-        <a class="nav-cta" href="/cdn-cgi/l/email-protection#0a6b646e786f6b79246e786b626f63674a696564797f667e6e6f7c246e6f">Gespräch anfragen <span aria-hidden="true">↗</span></a>
+        <a class="nav-cta" href="mailto:andreas.draheim@consultdev.de"><span class="nav-cta-desktop">Gespräch anfragen</span><span class="nav-cta-mobile">Kontakt</span> <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
@@ -29,7 +33,7 @@
         <h1 id="hero-title">Software mit <em>Richtung.</em></h1>
         <p class="hero-lead">Andreas Draheim Consultdev bringt Klarheit in komplexe Entwicklungs- und Veränderungsvorhaben — pragmatisch, technisch fundiert und auf Augenhöhe.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="/cdn-cgi/l/email-protection#e2838c8690878391cc8690838a878b8fa2818d8c91978e96868794cc8687">Projekt besprechen <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" href="mailto:andreas.draheim@consultdev.de">Projekt besprechen <span aria-hidden="true">↗</span></a>
           <a class="text-link" href="#leistungen">Leistungen entdecken <span aria-hidden="true">↓</span></a>
         </div>
       </div>
@@ -48,9 +52,9 @@
     <section id="leistungen" class="section shell" aria-labelledby="services-title">
       <div class="section-heading"><div><p class="section-kicker">Leistungen</p><h2 id="services-title">Vom ersten Gedanken<br><em>bis zum nächsten Schritt.</em></h2></div><p class="section-aside">Für Verantwortliche, Teams und Organisationen, die digitale Vorhaben nicht nur starten, sondern sinnvoll voranbringen wollen.</p></div>
       <div class="service-grid">
-        <article class="service-card featured"><span class="service-number">01</span><h3>Technische Strategie</h3><p>Architektur, Technologieentscheidungen und ein belastbarer Plan für die nächsten Schritte.</p><a href="/cdn-cgi/l/email-protection#1a7b747e687f7b69347e687b727f73775a797574696f766e7e7f6c347e7f" aria-label="Technische Strategie anfragen">Mehr erfahren <span aria-hidden="true">↗</span></a></article>
-        <article class="service-card"><span class="service-number">02</span><h3>Softwareentwicklung</h3><p>Von der Idee zum tragfähigen Produkt — fokussiert, wartbar und mit Blick auf den echten Nutzen.</p><a href="/cdn-cgi/l/email-protection#a8c9c6ccdacdc9db86ccdac9c0cdc1c5e8cbc7c6dbddc4dccccdde86cccd" aria-label="Softwareentwicklung anfragen">Mehr erfahren <span aria-hidden="true">↗</span></a></article>
-        <article class="service-card"><span class="service-number">03</span><h3>Teams &amp; Zusammenarbeit</h3><p>Rollen, Prozesse und technische Kommunikation so gestalten, dass Teams ins Wirken kommen.</p><a href="/cdn-cgi/l/email-protection#96f7f8f2e4f3f7e5b8f2e4f7fef3fffbd6f5f9f8e5e3fae2f2f3e0b8f2f3" aria-label="Beratung zu Teams und Zusammenarbeit anfragen">Mehr erfahren <span aria-hidden="true">↗</span></a></article>
+        <article class="service-card featured"><span class="service-number">01</span><h3>Technische Strategie</h3><p>Architektur, Technologieentscheidungen und ein belastbarer Plan für die nächsten Schritte.</p><a href="mailto:andreas.draheim@consultdev.de" aria-label="Technische Strategie anfragen">Mehr erfahren <span aria-hidden="true">↗</span></a></article>
+        <article class="service-card"><span class="service-number">02</span><h3>Softwareentwicklung</h3><p>Von der Idee zum tragfähigen Produkt — fokussiert, wartbar und mit Blick auf den echten Nutzen.</p><a href="mailto:andreas.draheim@consultdev.de" aria-label="Softwareentwicklung anfragen">Mehr erfahren <span aria-hidden="true">↗</span></a></article>
+        <article class="service-card"><span class="service-number">03</span><h3>Teams &amp; Zusammenarbeit</h3><p>Rollen, Prozesse und technische Kommunikation so gestalten, dass Teams ins Wirken kommen.</p><a href="mailto:andreas.draheim@consultdev.de" aria-label="Beratung zu Teams und Zusammenarbeit anfragen">Mehr erfahren <span aria-hidden="true">↗</span></a></article>
       </div>
     </section>
 
@@ -58,10 +62,30 @@
       <div class="shell method-grid"><div><p class="section-kicker light">Arbeitsweise</p><h2 id="method-title">Komplexität<br><em>konstruktiv wenden.</em></h2></div><div class="method-content"><p class="large-copy">Beratung beginnt mit Zuhören. Danach werden Annahmen sichtbar, Optionen greifbar und Entscheidungen möglich.</p><ol class="steps"><li><span>01</span><div><strong>Verstehen</strong><p>Kontext, Ziele und echte Engpässe gemeinsam schärfen.</p></div></li><li><span>02</span><div><strong>Ordnen</strong><p>Komplexität reduzieren, ohne wichtige Zusammenhänge zu verlieren.</p></div></li><li><span>03</span><div><strong>Bewegen</strong><p>Mit einem klaren nächsten Schritt ins Machen kommen.</p></div></li></ol></div></div>
     </section>
 
-    <section class="contact-section shell" aria-labelledby="contact-title"><div class="contact-panel"><p class="section-kicker">Bereit für den nächsten Schritt?</p><h2 id="contact-title">Lassen Sie uns<br><em>ins Gespräch kommen.</em></h2><a class="button button-light" href="/cdn-cgi/l/email-protection#11707f75637470623f7563707974787c51727e7f62647d657574673f7574"><span class="__cf_email__" data-cfemail="cbaaa5afb9aeaab8e5afb9aaa3aea2a68ba8a4a5b8bea7bfafaebde5afae">[email&#160;protected]</span> <span aria-hidden="true">↗</span></a></div></section>
+    <section class="contact-section shell" aria-labelledby="contact-title"><div class="contact-panel"><p class="section-kicker">Bereit für den nächsten Schritt?</p><h2 id="contact-title">Lassen Sie uns<br><em>ins Gespräch kommen.</em></h2><a class="button button-light" href="mailto:andreas.draheim@consultdev.de"><span>andreas.draheim@consultdev.de</span> <span aria-hidden="true">↗</span></a></div></section>
   </main>
 
   <footer class="site-footer"><div class="shell footer-wrap"><p>© Andreas Draheim Consultdev</p><div><a href="impressum.html">Impressum</a><a href="dataprivacy.html">Datenschutz</a></div></div></footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+  <script>
+    (() => {
+      const body = document.body;
+      const theme = localStorage.getItem('consultdev-theme') || 'dark';
+      const toggle = document.querySelector('.theme-toggle');
+
+      const applyTheme = (nextTheme) => {
+        const isDark = nextTheme === 'dark';
+        body.dataset.theme = nextTheme;
+        localStorage.setItem('consultdev-theme', nextTheme);
+        toggle.setAttribute('aria-pressed', String(isDark));
+        toggle.querySelector('.theme-toggle-icon').textContent = isDark ? '☀' : '☾';
+        toggle.querySelector('.theme-toggle-text').textContent = isDark ? 'Light' : 'Dark';
+      };
+
+      applyTheme(theme);
+      toggle.addEventListener('click', () => {
+        applyTheme(body.dataset.theme === 'dark' ? 'light' : 'dark');
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -9,16 +9,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body><a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<body data-theme="dark"><a class="skip-link" href="#main-content">Zum Inhalt springen</a>
     <header class="site-header">
         <div class="shell nav-wrap"><a class="brand" href="index.html"
                 aria-label="Andreas Draheim Consultdev – Startseite"><img src="assets/consultdev_main_logo.png"
                     alt="Andreas Draheim Consultdev" class="brand-logo"></a>
-            <nav aria-label="Hauptnavigation"><a href="index.html">Startseite</a><a
-                    href="index.html#leistungen">Leistungen</a><a href="index.html#arbeitsweise">Arbeitsweise</a><a
-                    class="nav-cta"
-                    href="/cdn-cgi/l/email-protection#23424d47514642500d4751424b464a4e63404c4d50564f574746550d4746">Kontakt
-                    <span aria-hidden="true">↗</span></a></nav>
+            <nav aria-label="Hauptnavigation">
+                <button class="theme-toggle" type="button" aria-label="Farbschema umschalten" aria-pressed="true">
+                    <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+                    <span class="theme-toggle-text">Light</span>
+                </button>
+            </nav>
         </div>
     </header>
     <main id="main-content" class="legal-page shell">
@@ -31,9 +32,7 @@
                 Fürth<br>Deutschland</p>
             <h2>Kontakt</h2>
             <p>E-Mail: <a
-                    href="/cdn-cgi/l/email-protection#3657585244535745185244575e535f5b7655595845435a42525340185253"><span
-                        class="__cf_email__"
-                        data-cfemail="cdaca3a9bfa8acbee3a9bfaca5a8a4a08daea2a3beb8a1b9a9a8bbe3a9a8">[email&#160;protected]</span></a>
+                    href="mailto:andreas.draheim@consultdev.de">andreas.draheim@consultdev.de</a>
             </p>
             <div class="notice"><strong>Hinweis zum Entwurfsstand</strong>
                 <p>Die vorstehenden Angaben beruhen auf den derzeit bekannten Informationen. Weitere gesetzlich
@@ -49,12 +48,37 @@
             <div><a href="impressum.html">Impressum</a><a href="dataprivacy.html">Datenschutz</a></div>
         </div>
     </footer>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script type="module"
-        src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
-        integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA=="
-        data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}'
-        crossorigin="anonymous"></script>
+    <script>
+        (() => {
+            const body = document.body;
+            const savedTheme = localStorage.getItem('consultdev-theme');
+            const theme = savedTheme || 'dark';
+
+            const applyTheme = (nextTheme) => {
+                const isDark = nextTheme === 'dark';
+                body.dataset.theme = nextTheme;
+                localStorage.setItem('consultdev-theme', nextTheme);
+
+                const toggle = document.querySelector('.theme-toggle');
+                if (toggle) {
+                    toggle.setAttribute('aria-pressed', String(isDark));
+                    toggle.querySelector('.theme-toggle-icon').textContent = isDark ? '☀' : '☾';
+                    toggle.querySelector('.theme-toggle-text').textContent = isDark ? 'Light' : 'Dark';
+                }
+            };
+
+            window.addEventListener('DOMContentLoaded', () => {
+                const toggle = document.querySelector('.theme-toggle');
+                if (!toggle) return;
+
+                applyTheme(theme);
+                toggle.addEventListener('click', () => {
+                    const nextTheme = body.dataset.theme === 'dark' ? 'light' : 'dark';
+                    applyTheme(nextTheme);
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>
