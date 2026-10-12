@@ -46,9 +46,8 @@
     --link-border: var(--ink)
 }
 
-body[data-theme="light"] {
-    background-color: var(--page-background);
-    color: var(--page-text);
+@media (prefers-color-scheme: light) {
+    :root {
     --ink: #231f27;
     --muted: #666;
     --magenta: #9E005D;
@@ -76,7 +75,8 @@ body[data-theme="light"] {
     --hero-card: rgba(35, 31, 39, .92);
     --step-muted: #aaa4aa;
     --card-ink: #231f27;
-    --link-border: var(--ink)
+        --link-border: var(--ink)
+    }
 }
 
 * {
@@ -161,31 +161,6 @@ button:focus-visible {
     align-items: center;
     gap: 20px;
     font-size: .88rem
-}
-
-.theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 12px;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    color: var(--ink);
-    border-radius: 999px;
-    font: inherit;
-    font-size: .78rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color .2s ease, border-color .2s ease, color .2s ease
-}
-
-.theme-toggle:hover {
-    border-color: var(--magenta)
-}
-
-.theme-toggle-icon {
-    font-size: 1rem;
-    line-height: 1
 }
 
 .site-header nav a:not(.nav-cta):hover,
@@ -594,8 +569,8 @@ h2 em {
 .button-light {
     position: relative;
     z-index: 1;
-    background: var(--white);
-    color: var(--ink)
+    background: var(--contact-kicker);
+    color: var(--button-dark)
 }
 
 .button-light:hover {
@@ -627,7 +602,7 @@ h2 em {
         width: min(100% - 32px, 560px)
     }
 
-    .site-header nav a:not(.nav-cta, .theme-toggle) {
+    .site-header nav a:not(.nav-cta) {
         display: none
     }
 
@@ -655,12 +630,6 @@ h2 em {
 
     .nav-cta-mobile {
         display: inline
-    }
-
-    .theme-toggle {
-        gap: 6px;
-        padding: 7px 8px;
-        font-size: .72rem
     }
 
     .nav-cta {
@@ -770,11 +739,6 @@ h2 em {
 
     .site-header nav {
         gap: 5px
-    }
-
-    .theme-toggle {
-        gap: 5px;
-        padding: 6px 7px
     }
 
     .nav-cta {

@@ -9,17 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-theme="dark"><a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<body><a class="skip-link" href="#main-content">Zum Inhalt springen</a>
     <header class="site-header">
         <div class="shell nav-wrap"><a class="brand" href="index.html"
                 aria-label="Andreas Draheim Consultdev – Startseite"><img src="assets/consultdev_main_logo.png"
                     alt="Andreas Draheim Consultdev" class="brand-logo"></a>
-            <nav aria-label="Hauptnavigation">
-                <button class="theme-toggle" type="button" aria-label="Farbschema umschalten" aria-pressed="true">
-                    <span class="theme-toggle-icon" aria-hidden="true">☀</span>
-                    <span class="theme-toggle-text">Light</span>
-                </button>
-            </nav>
         </div>
     </header>
     <main id="main-content" class="legal-page shell">
@@ -44,40 +38,14 @@
     </main>
     <footer class="site-footer">
         <div class="shell footer-wrap">
-            <p>© Andreas Draheim Consultdev</p>
+            <p>© <span data-current-year></span> Andreas Draheim Consultdev</p>
             <div><a href="impressum.html">Impressum</a><a href="dataprivacy.html">Datenschutz</a></div>
         </div>
     </footer>
     <script>
-        (() => {
-            const body = document.body;
-            const savedTheme = localStorage.getItem('consultdev-theme');
-            const theme = savedTheme || 'dark';
-
-            const applyTheme = (nextTheme) => {
-                const isDark = nextTheme === 'dark';
-                body.dataset.theme = nextTheme;
-                localStorage.setItem('consultdev-theme', nextTheme);
-
-                const toggle = document.querySelector('.theme-toggle');
-                if (toggle) {
-                    toggle.setAttribute('aria-pressed', String(isDark));
-                    toggle.querySelector('.theme-toggle-icon').textContent = isDark ? '☀' : '☾';
-                    toggle.querySelector('.theme-toggle-text').textContent = isDark ? 'Light' : 'Dark';
-                }
-            };
-
-            window.addEventListener('DOMContentLoaded', () => {
-                const toggle = document.querySelector('.theme-toggle');
-                if (!toggle) return;
-
-                applyTheme(theme);
-                toggle.addEventListener('click', () => {
-                    const nextTheme = body.dataset.theme === 'dark' ? 'light' : 'dark';
-                    applyTheme(nextTheme);
-                });
-            });
-        })();
+        document.querySelectorAll('[data-current-year]').forEach((yearElement) => {
+            yearElement.textContent = new Date().getFullYear();
+        });
     </script>
 </body>
 

@@ -7,7 +7,7 @@
   <title>Andreas Draheim Consultdev — Software mit Richtung</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-theme="dark">
+<body>
   <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
   <header class="site-header">
     <div class="shell nav-wrap">
@@ -15,10 +15,6 @@
         <img src="assets/consultdev_main_logo.png" alt="Andreas Draheim Consultdev" class="brand-logo">
       </a>
       <nav aria-label="Hauptnavigation">
-        <button class="theme-toggle" type="button" aria-label="Farbschema umschalten" aria-pressed="true">
-          <span class="theme-toggle-icon" aria-hidden="true">☀</span>
-          <span class="theme-toggle-text">Light</span>
-        </button>
         <a href="#leistungen">Leistungen</a>
         <a href="#arbeitsweise">Arbeitsweise</a>
         <a class="nav-cta" href="mailto:andreas.draheim@consultdev.de"><span class="nav-cta-desktop">Gespräch anfragen</span><span class="nav-cta-mobile">Kontakt</span> <span aria-hidden="true">↗</span></a>
@@ -65,27 +61,11 @@
     <section class="contact-section shell" aria-labelledby="contact-title"><div class="contact-panel"><p class="section-kicker">Bereit für den nächsten Schritt?</p><h2 id="contact-title">Lassen Sie uns<br><em>ins Gespräch kommen.</em></h2><a class="button button-light" href="mailto:andreas.draheim@consultdev.de"><span>andreas.draheim@consultdev.de</span> <span aria-hidden="true">↗</span></a></div></section>
   </main>
 
-  <footer class="site-footer"><div class="shell footer-wrap"><p>© Andreas Draheim Consultdev</p><div><a href="impressum.html">Impressum</a><a href="dataprivacy.html">Datenschutz</a></div></div></footer>
+  <footer class="site-footer"><div class="shell footer-wrap"><p>© <span data-current-year></span> Andreas Draheim Consultdev</p><div><a href="impressum.html">Impressum</a><a href="dataprivacy.html">Datenschutz</a></div></div></footer>
   <script>
-    (() => {
-      const body = document.body;
-      const theme = localStorage.getItem('consultdev-theme') || 'dark';
-      const toggle = document.querySelector('.theme-toggle');
-
-      const applyTheme = (nextTheme) => {
-        const isDark = nextTheme === 'dark';
-        body.dataset.theme = nextTheme;
-        localStorage.setItem('consultdev-theme', nextTheme);
-        toggle.setAttribute('aria-pressed', String(isDark));
-        toggle.querySelector('.theme-toggle-icon').textContent = isDark ? '☀' : '☾';
-        toggle.querySelector('.theme-toggle-text').textContent = isDark ? 'Light' : 'Dark';
-      };
-
-      applyTheme(theme);
-      toggle.addEventListener('click', () => {
-        applyTheme(body.dataset.theme === 'dark' ? 'light' : 'dark');
-      });
-    })();
+    document.querySelectorAll('[data-current-year]').forEach((yearElement) => {
+      yearElement.textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
