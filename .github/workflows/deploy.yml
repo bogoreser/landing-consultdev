@@ -41,5 +41,5 @@ jobs:
           rsync -rlvz --delete \
             --chmod=D755,F644 \
             -e "ssh -i ~/.ssh/deploy_key -p ${SSH_PORT}" \
-            --exclude '.git' --exclude '.github' \
+            --exclude '.git' --exclude '.github' --exclude '.gitignore'\
             ./ ${SSH_USER}@${SSH_HOST}:/var/www/landingpage/
